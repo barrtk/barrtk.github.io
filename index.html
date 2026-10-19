@@ -356,18 +356,28 @@
         }
 
         .edge-points {
-            list-style: none;
+            list-style: none !important;
+            list-style-type: none !important;
+            padding-left: 0 !important;
+            margin: 0 !important;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
         .edge-points li {
+            list-style: none !important;
+            list-style-type: none !important;
             display: flex;
             align-items: flex-start;
             gap: 10px;
             font-size: 0.86rem;
             color: var(--text-primary);
+        }
+
+        .edge-points li::marker {
+            display: none !important;
+            content: "" !important;
         }
 
         .edge-points svg {
@@ -812,9 +822,9 @@
             <nav class="nav-links">
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#competencies" class="nav-link">Outlier AI Alignment</a>
-                <a href="#code-review" class="nav-link">Private Repos & Verification</a>
+                <a href="#code-review" class="nav-link">Code & Architecture</a>
                 <a href="https://github.com/barrtk" target="_blank" class="nav-link">GitHub (@barrtk)</a>
-                <a href="Bartlomiej_Hawrylo_Resume_Outlier.pdf" target="_blank" class="btn btn-primary btn-sm">
+                <a href="Bartlomiej_Hawrylo_Resume.pdf" download="Bartlomiej_Hawrylo_Resume.pdf" target="_blank" class="btn btn-primary btn-sm">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                     Download PDF Resume
                 </a>
@@ -841,7 +851,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                         Explore Flagship Projects
                     </a>
-                    <a href="Bartlomiej_Hawrylo_Resume_Outlier.pdf" target="_blank" class="btn btn-outline">
+                    <a href="Bartlomiej_Hawrylo_Resume.pdf" target="_blank" class="btn btn-outline">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                         Open Official Resume (PDF)
                     </a>
@@ -861,7 +871,7 @@
                     </div>
                     <div class="stat-item">
                         <h3>M.Sc.</h3>
-                        <p>Cognitive & Psychology</p>
+                        <p>Cognitive Psychology</p>
                     </div>
                 </div>
             </div>
@@ -993,12 +1003,12 @@
                 <article class="project-card" data-category="ai fullstack">
                     <div class="project-top">
                         <div class="project-header-row">
-                            <span class="project-category-tag">AI & WebGL Suite</span>
-                            <span class="project-date">2023 – Present</span>
+                            <span class="project-category-tag" style="background: rgba(245, 158, 11, 0.15); color: #fcd34d;">AI & WebGL · Alpha Prototype</span>
+                            <span class="project-date">2023 – 2025 (Prototype)</span>
                         </div>
                         <h3 class="project-title">ReThink Chess (ChessTrainer)</h3>
                         <p class="project-desc">
-                            An advanced AI chess training web platform that translates engine evaluations into pedagogical natural language and real-time visual heatmaps.
+                            An experimental AI chess training web platform that translates engine evaluations into pedagogical natural language and real-time visual heatmaps.
                         </p>
                         
                         <div class="engineering-highlight">
@@ -1022,9 +1032,9 @@
                     </div>
 
                     <div class="project-actions">
-                        <a href="https://rethink.fast" target="_blank" class="btn btn-primary btn-sm">
+                        <a href="https://rethink.fast" target="_blank" class="btn btn-outline btn-sm">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            Live Demo (rethink.fast)
+                            Prototype Demo (rethink.fast)
                         </a>
                         <a href="https://github.com/barrtk" target="_blank" class="btn btn-outline btn-sm">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -1040,9 +1050,9 @@
                             <span class="project-category-tag">Real-Time Translation</span>
                             <span class="project-date">2023 – Present</span>
                         </div>
-                        <h3 class="project-title">Poliglota Network & Japan-Master</h3>
+                        <h3 class="project-title">Poliglota Network</h3>
                         <p class="project-desc">
-                            A live multi-directional real-time communication platform allowing multi-party chat with automatic language routing, plus mnemonic Kanji learning.
+                            A live multi-directional real-time communication platform allowing multi-party chat with automatic language routing and sub-second translation.
                         </p>
                         
                         <div class="engineering-highlight">
@@ -1051,7 +1061,7 @@
                                 Technical Architecture
                             </div>
                             <p>
-                                Built an N-way WebSocket routing pipeline where each client speaks their chosen language and reads in their preferred language. Simultaneous translations dispatched with sub-second latency.
+                                Built an N-way WebSocket routing pipeline where each client speaks their chosen language and reads in their preferred language. Simultaneous translations dispatched across all participants at once.
                             </p>
                         </div>
 
@@ -1060,7 +1070,7 @@
                             <span class="tech-pill">WebSockets</span>
                             <span class="tech-pill">Translation APIs</span>
                             <span class="tech-pill">Responsive UI</span>
-                            <span class="tech-pill">Mnemonics</span>
+                            <span class="tech-pill">Low-Latency Routing</span>
                         </div>
                     </div>
 
@@ -1068,6 +1078,45 @@
                         <a href="https://poliglota.network" target="_blank" class="btn btn-primary btn-sm">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             Live Demo (poliglota.network)
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 3. Japan-Master (Kanji Mnemonic Learning) -->
+                <article class="project-card" data-category="fullstack ai">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">Cognitive EdTech & PWA</span>
+                            <span class="project-date">2024 – Present (Active Dev)</span>
+                        </div>
+                        <h3 class="project-title">Japan-Master (Kanji Mnemonic Engine)</h3>
+                        <p class="project-desc">
+                            A specialized web application that leverages visual and cognitive mnemonics to accelerate Japanese character learning, featuring 1,000+ interactive Kanji.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Cognitive Engine & Practice System
+                            </div>
+                            <p>
+                                Engineered an active-recall practice platform indexing over 1,000+ Kanji with visual association hooks, radical breakdowns, and spaced repetition drills for rapid character retention.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">JavaScript / TS</span>
+                            <span class="tech-pill">Visual Mnemonics</span>
+                            <span class="tech-pill">1,000+ Kanji DB</span>
+                            <span class="tech-pill">Active Recall</span>
+                            <span class="tech-pill">Mobile-First UI</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://poliglota.network/japan/" target="_blank" class="btn btn-primary btn-sm">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Live App (poliglota.network/japan)
                         </a>
                     </div>
                 </article>
@@ -1120,7 +1169,7 @@
                         </div>
                         <h3 class="project-title">SwissKnife Toolbox (SKToolbox)</h3>
                         <p class="project-desc">
-                            A production Windows desktop productivity utility delivering sub-100ms screen snippet OCR text extraction and immediate clipboard integration.
+                            A production Windows desktop productivity utility delivering near-instant screen snippet OCR text extraction and immediate clipboard integration.
                         </p>
                         
                         <div class="engineering-highlight">
@@ -1129,7 +1178,7 @@
                                 Technical Architecture
                             </div>
                             <p>
-                                Built in C# with native Win32 low-level hotkey hooks, high-speed regional screen capture buffer, and Tesseract OCR engine for instantaneous text capture.
+                                Built in C# with native Win32 low-level hotkey hooks, high-speed regional screen capture buffer, and Tesseract OCR engine for instantaneous local text extraction.
                             </p>
                         </div>
 
@@ -1157,9 +1206,9 @@
                             <span class="project-category-tag">Computer Vision</span>
                             <span class="project-date">2023 – 2024</span>
                         </div>
-                        <h3 class="project-title">RemoteFaceApp & Gesture Vision</h3>
+                        <h3 class="project-title">RemoteFaceApp & Neural Vision</h3>
                         <p class="project-desc">
-                            Real-time computer vision pipelines featuring low-latency PC-to-mobile remote desktop control, deepfake face-swapping, and MediaPipe hand gesture tracking.
+                            Real-time computer vision pipelines featuring low-latency PC-to-mobile remote desktop control, neural facial reenactment / landmark synthesis, and MediaPipe hand gesture tracking.
                         </p>
                         
                         <div class="engineering-highlight">
@@ -1168,7 +1217,7 @@
                                 Technical Architecture
                             </div>
                             <p>
-                                Developed Python OpenCV and MediaPipe pipelines with hardware-accelerated video frames, landmark matrix extraction, and low-latency network streaming.
+                                Developed Python OpenCV and MediaPipe pipelines with hardware-accelerated video frames, facial landmark matrix extraction, and low-latency network streaming.
                             </p>
                         </div>
 
@@ -1176,7 +1225,8 @@
                             <span class="tech-pill">Python</span>
                             <span class="tech-pill">OpenCV</span>
                             <span class="tech-pill">MediaPipe</span>
-                            <span class="tech-pill">Deepfake Pipeline</span>
+                            <span class="tech-pill">Neural Face Synthesis</span>
+                            <span class="tech-pill">Facial Landmark Mapping</span>
                             <span class="tech-pill">Low-Latency Streaming</span>
                         </div>
                     </div>
@@ -1271,23 +1321,23 @@
         </div>
     </section>
 
-    <!-- PRIVATE REPOSITORIES & VERIFICATION POLICY -->
+    <!-- PRODUCTION CODE & ARCHITECTURE -->
     <section class="container" id="code-review">
         <div class="private-code-section">
             <div class="private-code-text">
-                <span class="section-tag">Transparency & Verification</span>
-                <h3>Private Repositories & Engineering Competence</h3>
+                <span class="section-tag">Codebase & Architecture</span>
+                <h3>Production Code & Engineering Standards</h3>
                 <p>
-                    Several of my complex production systems (such as high-traffic web tools, engine integrations, and trading/scraping bots) are maintained in private repositories for proprietary reasons. I believe in concrete, verifiable proof of engineering competence:
+                    Several production systems and API integrations are maintained in private repositories to protect API credentials, database keys, and proprietary logic. Real-world engineering competence is demonstrated through working software, documented architectures, and benchmark metrics:
                 </p>
                 <div class="hero-actions">
-                    <a href="mailto:bartlomiejhawrylo@gmail.com?subject=Code%20Walkthrough%20Request%20-%20Bart%C5%82omiej%20Hawry%C5%82o" class="btn btn-primary">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        Request Code Walkthrough / Demo
-                    </a>
-                    <a href="https://github.com/barrtk" target="_blank" class="btn btn-outline">
+                    <a href="https://github.com/barrtk" target="_blank" class="btn btn-primary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        View Public Repos (@barrtk)
+                        Explore GitHub Profile (@barrtk)
+                    </a>
+                    <a href="mailto:bartlomiejhawrylo@gmail.com" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Get in Touch
                     </a>
                 </div>
             </div>
@@ -1295,15 +1345,15 @@
             <div class="verification-badges">
                 <div class="v-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    <span><strong>Live Production URLs:</strong> Real working deployments testable in real-time.</span>
+                    <span><strong>Live Deployments:</strong> Real working platforms testable in browser (poliglota.network, sktoolbox.pro, rethink.fast).</span>
                 </div>
                 <div class="v-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                    <span><strong>Verified Video Runs:</strong> Uncut demonstrations (such as the 60FPS Icy Tower record).</span>
+                    <span><strong>Verified Video Runs:</strong> Uncut demonstrations (including the 60FPS Icy Tower floor 13,479 world record).</span>
                 </div>
                 <div class="v-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                    <span><strong>Architecture Walkthrough:</strong> Ready to share sanitized code and explain architectural decisions on call.</span>
+                    <span><strong>Modular Architecture:</strong> Strong focus on clean code separation, type safety, and defensive error handling across Python, TS, C++, and C#.</span>
                 </div>
             </div>
         </div>
@@ -1317,7 +1367,7 @@
                 <p style="font-size: 0.8rem; margin-top: 4px;">Email: <a href="mailto:bartlomiejhawrylo@gmail.com" style="color: var(--text-accent);">bartlomiejhawrylo@gmail.com</a> · GitHub: <a href="https://github.com/barrtk" target="_blank" style="color: var(--text-accent);">@barrtk</a></p>
             </div>
             <div class="footer-links">
-                <a href="Bartlomiej_Hawrylo_Resume_Outlier.pdf" target="_blank" class="btn btn-outline btn-sm">Download Resume (PDF)</a>
+                <a href="Bartlomiej_Hawrylo_Resume.pdf" download="Bartlomiej_Hawrylo_Resume.pdf" target="_blank" class="btn btn-outline btn-sm">Download Resume (PDF)</a>
                 <a href="https://github.com/barrtk" target="_blank" class="btn btn-primary btn-sm">GitHub Profile</a>
             </div>
         </div>
