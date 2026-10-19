@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bartłomiej Hawryło | Software Engineer & AI Systems Developer</title>
+    <meta name="description" content="Portfolio of Bartłomiej Hawryło — Software Engineer specializing in AI & LLM bridges, Computer Vision, Full-Stack applications, and RLHF code evaluation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           CSS TOKENS & RESET
+           ============================================================ */
+        :root {
+            --bg-base: #090d16;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1a2333;
+            --bg-card: rgba(22, 30, 46, 0.7);
+            --bg-card-hover: rgba(28, 38, 58, 0.9);
+            
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(59, 130, 246, 0.3);
+            --border-glow: rgba(96, 165, 250, 0.5);
+
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --text-accent: #60a5fa;
+
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --secondary: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+
+            --font-display: 'Outfit', sans-serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-pill: 9999px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 16px;
+        }
+
+        body {
+            line-height: 1.6;
+            background: radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+                        var(--bg-base);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================================
+           NAVBAR
+           ============================================================ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 12px var(--primary-glow);
+        }
+
+        .brand-text h1 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-text p {
+            font-size: 0.78rem;
+            color: var(--text-accent);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: var(--transition-smooth);
+            font-family: var(--font-sans);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(37, 99, 235, 0.5);
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--border-accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.82rem;
+            border-radius: 6px;
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero {
+            padding: 80px 0 60px 0;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-badge-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 24px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 10px var(--accent-emerald);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .hero-badge-text {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #93c5fd;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span.gradient-text {
+            background: linear-gradient(135deg, #60a5fa 10%, #a78bfa 50%, #38bdf8 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.12rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 32px;
+            max-width: 620px;
+        }
+
+        .hero-description strong {
+            color: var(--text-primary);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Hero Right: Dual Competency Card */
+        .edge-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .edge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent-cyan));
+        }
+
+        .edge-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .edge-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        .edge-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.55;
+        }
+
+        .edge-points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .edge-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.86rem;
+            color: var(--text-primary);
+        }
+
+        .edge-points svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-emerald);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ============================================================
+           SECTION HEADER STYLES
+           ============================================================ */
+        .section-header {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin-top: 8px;
+        }
+
+        /* ============================================================
+           OUTLIER AI COMPETENCY MATRIX SECTION
+           ============================================================ */
+        .competency-section {
+            padding: 50px 0;
+            background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.6), transparent);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            margin: 40px 0;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .matrix-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .matrix-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .matrix-icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .matrix-icon-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .matrix-icon-purple { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .matrix-icon-cyan { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+        .matrix-icon-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+
+        .matrix-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .matrix-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .matrix-proof {
+            font-size: 0.78rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            border-left: 2px solid var(--primary);
+            color: var(--text-muted);
+        }
+
+        .matrix-proof strong {
+            color: var(--text-primary);
+        }
+
+        /* ============================================================
+           PROJECTS FILTER & GRID
+           ============================================================ */
+        .projects-section {
+            padding: 60px 0;
+        }
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-accent);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 28px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            background: var(--bg-card-hover);
+        }
+
+        .project-top {
+            margin-bottom: 16px;
+        }
+
+        .project-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .project-category-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-accent);
+        }
+
+        .project-date {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        /* Engineering highlight box */
+        .engineering-highlight {
+            background: rgba(9, 13, 22, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            margin-bottom: 18px;
+        }
+
+        .highlight-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #38bdf8;
+            margin-bottom: 6px;
+        }
+
+        .engineering-highlight p {
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+        }
+
+        .tech-pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tech-pill {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        /* ============================================================
+           PRIVATE REPO & CODE REVIEW POLICY CALLOUT
+           ============================================================ */
+        .private-code-section {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 36px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .private-code-section::after {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .private-code-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .private-code-text p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .verification-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .v-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .v-badge svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .v-badge span {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 40px 0;
+            margin-top: 60px;
+            background: rgba(9, 13, 22, 0.95);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-left span {
+            color: var(--text-accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* ============================================================
+           RESPONSIVE BREAKPOINTS
+           ============================================================ */
+        @media (max-width: 960px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-title {
+                font-size: 2.6rem;
+            }
+
+            .private-code-section {
+                grid-template-columns: 1fr;
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="brand">
+                <img src="profile.png" alt="Bartłomiej Hawryło" class="brand-avatar" onerror="this.style.display='none'">
+                <div class="brand-text">
+                    <h1>Bartłomiej Hawryło</h1>
+                    <p>Software Engineer · AI & LLM Systems</p>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#competencies" class="nav-link">Outlier AI Alignment</a>
+                <a href="#code-review" class="nav-link">Private Repos & Verification</a>
+                <a href="https://github.com/barrtk" target="_blank" class="nav-link">GitHub (@barrtk)</a>
+                <a href="Bartlomiej_Hawrylo_Resume_Outlier.pdf" target="_blank" class="btn btn-primary btn-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF Resume
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <div class="hero-badge-wrap">
+                    <div class="pulse-dot"></div>
+                    <span class="hero-badge-text">Tailored for Outlier AI · Remote Code & Model Evaluation</span>
+                </div>
+                <h2 class="hero-title">
+                    Bridging <span class="gradient-text">Algorithmic Code</span> & <span class="gradient-text">Cognitive AI Reasoning</span>.
+                </h2>
+                <p class="hero-description">
+                    I am a <strong>Software Engineer & AI Integrator</strong> with 10+ years of active development in <strong>Python, JavaScript/TypeScript, C++, and C#</strong>, paired with a formal <strong>M.Sc. in Psychology</strong>. I build real systems: bidirectional LLM-to-engine bridges, multi-directional live translation matrices, computer vision gesture pipelines, and world-record autonomous agents.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        Explore Flagship Projects
+                    </a>
+                    <a href="Bartlomiej_Hawrylo_Resume_Outlier.pdf" target="_blank" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                        Open Official Resume (PDF)
+                    </a>
+                    <a href="mailto:bartlomiejhawrylo@gmail.com" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Contact
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10+ Yrs</h3>
+                        <p>Code & Systems Dev</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4 Langs</h3>
+                        <p>Python, TS/JS, C++, C#</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>M.Sc.</h3>
+                        <p>Cognitive & Psychology</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUAL COMPETENCY CARD -->
+            <div class="hero-right">
+                <div class="edge-card">
+                    <span class="edge-tag">The Outlier AI Advantage</span>
+                    <h3>Why Code + Cognitive Science Wins</h3>
+                    <p>
+                        Evaluating LLM-generated code and Chain-of-Thought reasoning requires more than checking if code compiles. It demands detecting subtle algorithmic hallucinations, edge cases, and human alignment flaws.
+                    </p>
+                    <ul class="edge-points">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span><strong>Multi-Language Code Auditing:</strong> Fluency across Python, TypeScript, C++, and C# for complex polyglot benchmarks.</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span><strong>LLM-to-Engine Grounding:</strong> Deep experience bridging raw algorithmic engines (Stockfish UCI) with natural language reasoning models.</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span><strong>Cognitive Trace Evaluation:</strong> Master's background in psychology provides systematic training in identifying bias, logic leaps, and instruction adherence.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUTLIER AI ALIGNMENT SECTION -->
+    <section class="competency-section" id="competencies">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-tag">Core Capabilities</span>
+                    <h2 class="section-title">Outlier AI Competency Matrix</h2>
+                    <p class="section-subtitle">
+                        How my real-world engineering projects directly map to Outlier's AI training, RLHF, and code evaluation needs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="matrix-grid">
+                <!-- 1. Code Evaluation -->
+                <div class="matrix-card">
+                    <div class="matrix-icon-wrap matrix-icon-blue">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h4>Code Correctness & Complexity</h4>
+                    <p>
+                        Auditing code for subtle logical bugs, off-by-one boundary errors, memory leaks, and optimal Big-O algorithmic time/space complexity.
+                    </p>
+                    <div class="matrix-proof">
+                        <strong>Proven by:</strong> C++ Unreal Engine memory management, Win32 API hooks in C#, and high-speed Python state bots.
+                    </div>
+                </div>
+
+                <!-- 2. LLM Reasoning & CoT -->
+                <div class="matrix-card">
+                    <div class="matrix-icon-wrap matrix-icon-purple">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h4>Chain-of-Thought (CoT) Auditing</h4>
+                    <p>
+                        Evaluating step-by-step reasoning traces to verify that conclusions logically follow from premises without false intermediate leaps.
+                    </p>
+                    <div class="matrix-proof">
+                        <strong>Proven by:</strong> ReThink Chess Stockfish-to-LLM bridge translating multi-ply PV lines into verified pedagogical logic.
+                    </div>
+                </div>
+
+                <!-- 3. Multilingual & NLP -->
+                <div class="matrix-card">
+                    <div class="matrix-icon-wrap matrix-icon-cyan">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h4>Multilingual & Translation Quality</h4>
+                    <p>
+                        Assessing machine translation nuances, idioms, phonetic Romaji conversions, and multi-turn conversational accuracy across languages.
+                    </p>
+                    <div class="matrix-proof">
+                        <strong>Proven by:</strong> Poliglota Network (real-time N-way translation matrix) and Stremio-Lektor dual-subtitles.
+                    </div>
+                </div>
+
+                <!-- 4. RLHF & Human Alignment -->
+                <div class="matrix-card">
+                    <div class="matrix-icon-wrap matrix-icon-emerald">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                    </div>
+                    <h4>RLHF & Cognitive Alignment</h4>
+                    <p>
+                        Ranking candidate model responses on helpfulness, harmlessness, instruction adherence, tone, and cognitive clarity.
+                    </p>
+                    <div class="matrix-proof">
+                        <strong>Proven by:</strong> M.Sc. in Psychology, diagnostic interview experience (MPU), and Maia neural human-simulation models.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLAGSHIP PROJECTS SECTION -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-tag">Featured Work</span>
+                    <h2 class="section-title">Flagship Engineering Projects</h2>
+                    <p class="section-subtitle">
+                        Interactive platforms, AI pipelines, computer vision systems, and automation agents built from scratch.
+                    </p>
+                </div>
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+                    <button class="filter-btn" onclick="filterProjects('ai', this)">AI & LLMs</button>
+                    <button class="filter-btn" onclick="filterProjects('fullstack', this)">Full-Stack Web</button>
+                    <button class="filter-btn" onclick="filterProjects('cv-xr', this)">Computer Vision & XR</button>
+                    <button class="filter-btn" onclick="filterProjects('systems', this)">Desktop & Bots</button>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projectGrid">
+
+                <!-- 1. ReThink Chess -->
+                <article class="project-card" data-category="ai fullstack">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">AI & WebGL Suite</span>
+                            <span class="project-date">2023 – Present</span>
+                        </div>
+                        <h3 class="project-title">ReThink Chess (ChessTrainer)</h3>
+                        <p class="project-desc">
+                            An advanced AI chess training web platform that translates engine evaluations into pedagogical natural language and real-time visual heatmaps.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Engineered a bidirectional bridge connecting the Stockfish UCI engine with an LLM prompt pipeline to explain tactical motifs (pins, forks, skewers). Created "Rainbow Mode" visual layers and Maia neural network opponents.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">JavaScript ES6+</span>
+                            <span class="tech-pill">Three.js</span>
+                            <span class="tech-pill">Stockfish WASM</span>
+                            <span class="tech-pill">LLM Prompting</span>
+                            <span class="tech-pill">Maia Neural Net</span>
+                            <span class="tech-pill">OCR</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://rethink.fast" target="_blank" class="btn btn-primary btn-sm">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Live Demo (rethink.fast)
+                        </a>
+                        <a href="https://github.com/barrtk" target="_blank" class="btn btn-outline btn-sm">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub Profile
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 2. Poliglota Network -->
+                <article class="project-card" data-category="fullstack ai">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">Real-Time Translation</span>
+                            <span class="project-date">2023 – Present</span>
+                        </div>
+                        <h3 class="project-title">Poliglota Network & Japan-Master</h3>
+                        <p class="project-desc">
+                            A live multi-directional real-time communication platform allowing multi-party chat with automatic language routing, plus mnemonic Kanji learning.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Built an N-way WebSocket routing pipeline where each client speaks their chosen language and reads in their preferred language. Simultaneous translations dispatched with sub-second latency.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">TypeScript</span>
+                            <span class="tech-pill">WebSockets</span>
+                            <span class="tech-pill">Translation APIs</span>
+                            <span class="tech-pill">Responsive UI</span>
+                            <span class="tech-pill">Mnemonics</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://poliglota.network" target="_blank" class="btn btn-primary btn-sm">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Live Demo (poliglota.network)
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 3. Stremio-Lektor -->
+                <article class="project-card" data-category="ai systems">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">AI Voice & Streaming</span>
+                            <span class="project-date">2024</span>
+                        </div>
+                        <h3 class="project-title">Stremio-Lektor Voice Cloning</h3>
+                        <p class="project-desc">
+                            A custom Stremio streaming addon providing real-time AI voiceover dubbing and bilingual subtitle rendering with phonetic Romaji transcription.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Streamlined local neural TTS and voice cloning models to generate synchronized voiceovers from SRT/VTT subtitle tracks with low memory overhead.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">JavaScript</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">Local TTS / Voice Clone</span>
+                            <span class="tech-pill">SRT Parser</span>
+                            <span class="tech-pill">Stremio SDK</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <span class="btn btn-outline btn-sm" style="cursor: default;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                            Custom Engine Addon
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 4. SKToolbox -->
+                <article class="project-card" data-category="systems">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">Desktop Utility</span>
+                            <span class="project-date">2024 – Present</span>
+                        </div>
+                        <h3 class="project-title">SwissKnife Toolbox (SKToolbox)</h3>
+                        <p class="project-desc">
+                            A production Windows desktop productivity utility delivering sub-100ms screen snippet OCR text extraction and immediate clipboard integration.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Built in C# with native Win32 low-level hotkey hooks, high-speed regional screen capture buffer, and Tesseract OCR engine for instantaneous text capture.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">C#</span>
+                            <span class="tech-pill">.NET WinForms/WPF</span>
+                            <span class="tech-pill">Tesseract OCR</span>
+                            <span class="tech-pill">Win32 API</span>
+                            <span class="tech-pill">Clipboard Stream</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://sktoolbox.pro" target="_blank" class="btn btn-primary btn-sm">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Live at sktoolbox.pro
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 5. RemoteFaceApp & Hand Tracking -->
+                <article class="project-card" data-category="cv-xr ai">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">Computer Vision</span>
+                            <span class="project-date">2023 – 2024</span>
+                        </div>
+                        <h3 class="project-title">RemoteFaceApp & Gesture Vision</h3>
+                        <p class="project-desc">
+                            Real-time computer vision pipelines featuring low-latency PC-to-mobile remote desktop control, deepfake face-swapping, and MediaPipe hand gesture tracking.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Developed Python OpenCV and MediaPipe pipelines with hardware-accelerated video frames, landmark matrix extraction, and low-latency network streaming.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">OpenCV</span>
+                            <span class="tech-pill">MediaPipe</span>
+                            <span class="tech-pill">Deepfake Pipeline</span>
+                            <span class="tech-pill">Low-Latency Streaming</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <span class="btn btn-outline btn-sm" style="cursor: default;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                            Computer Vision Pipeline
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 6. Icy Tower World Record Bot -->
+                <article class="project-card" data-category="systems">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">Autonomous Agent</span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h3 class="project-title">Autonomous Game Bot (Floor 13,479)</h3>
+                        <p class="project-desc">
+                            An autonomous gameplay agent programmed in Python that reached Floor 13,479 in Icy Tower, breaking all documented internet world records.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Engineered real-time screen analysis, microsecond keyboard event injection, dynamic velocity state machine, and predictive ledge detection under high scroll speeds.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Screen Parsing</span>
+                            <span class="tech-pill">Input Automation</span>
+                            <span class="tech-pill">State Machines</span>
+                            <span class="tech-pill">Kinematics</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://www.youtube.com/watch?v=D6I6KADW4sc" target="_blank" class="btn btn-primary btn-sm">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            Watch 1h 60FPS Video (YouTube)
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 7. VR Piano Learning Suite -->
+                <article class="project-card" data-category="cv-xr">
+                    <div class="project-top">
+                        <div class="project-header-row">
+                            <span class="project-category-tag">Spatial XR / Game Dev</span>
+                            <span class="project-date">2024</span>
+                        </div>
+                        <h3 class="project-title">VR & WebXR Piano Learning Suite</h3>
+                        <p class="project-desc">
+                            An interactive spatial piano training system (inspired by PianoVision) with falling 3D note trajectories mapped directly onto physical MIDI keyboards.
+                        </p>
+                        
+                        <div class="engineering-highlight">
+                            <div class="highlight-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Technical Architecture
+                            </div>
+                            <p>
+                                Developed initially in C++ using Unreal Engine 5.5.4 and OpenXR, then ported to Three.js WebXR. Integrated real-time MIDI input streams with zero perceived rendering latency.
+                            </p>
+                        </div>
+
+                        <div class="tech-pill-list">
+                            <span class="tech-pill">C++</span>
+                            <span class="tech-pill">Unreal Engine 5.5</span>
+                            <span class="tech-pill">OpenXR</span>
+                            <span class="tech-pill">Three.js</span>
+                            <span class="tech-pill">MIDI Protocol</span>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <span class="btn btn-outline btn-sm" style="cursor: default;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                            Spatial XR & C++ Engine
+                        </span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIVATE REPOSITORIES & VERIFICATION POLICY -->
+    <section class="container" id="code-review">
+        <div class="private-code-section">
+            <div class="private-code-text">
+                <span class="section-tag">Transparency & Verification</span>
+                <h3>Private Repositories & Engineering Competence</h3>
+                <p>
+                    Several of my complex production systems (such as high-traffic web tools, engine integrations, and trading/scraping bots) are maintained in private repositories for proprietary reasons. I believe in concrete, verifiable proof of engineering competence:
+                </p>
+                <div class="hero-actions">
+                    <a href="mailto:bartlomiejhawrylo@gmail.com?subject=Code%20Walkthrough%20Request%20-%20Bart%C5%82omiej%20Hawry%C5%82o" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Request Code Walkthrough / Demo
+                    </a>
+                    <a href="https://github.com/barrtk" target="_blank" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View Public Repos (@barrtk)
+                    </a>
+                </div>
+            </div>
+
+            <div class="verification-badges">
+                <div class="v-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span><strong>Live Production URLs:</strong> Real working deployments testable in real-time.</span>
+                </div>
+                <div class="v-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    <span><strong>Verified Video Runs:</strong> Uncut demonstrations (such as the 60FPS Icy Tower record).</span>
+                </div>
+                <div class="v-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <span><strong>Architecture Walkthrough:</strong> Ready to share sanitized code and explain architectural decisions on call.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p><strong>Bartłomiej Hawryło</strong> · Software Engineer & AI Systems Developer</p>
+                <p style="font-size: 0.8rem; margin-top: 4px;">Email: <a href="mailto:bartlomiejhawrylo@gmail.com" style="color: var(--text-accent);">bartlomiejhawrylo@gmail.com</a> · GitHub: <a href="https://github.com/barrtk" target="_blank" style="color: var(--text-accent);">@barrtk</a></p>
+            </div>
+            <div class="footer-links">
+                <a href="Bartlomiej_Hawrylo_Resume_Outlier.pdf" target="_blank" class="btn btn-outline btn-sm">Download Resume (PDF)</a>
+                <a href="https://github.com/barrtk" target="_blank" class="btn btn-primary btn-sm">GitHub Profile</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        function filterProjects(category, btn) {
+            // Update active button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat.includes(category)) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 0.3s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
